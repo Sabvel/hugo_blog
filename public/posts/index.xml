@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>All Posts - Krllz.dev блог</title>
+        <link>http://example.org/posts/</link>
+        <description>All Posts | Krllz.dev блог</description>
+        <generator>Hugo -- gohugo.io</generator><language>ru</language><lastBuildDate>Tue, 12 Dec 2023 10:27:15 &#43;0300</lastBuildDate><atom:link href="http://example.org/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Настройка безопасности VPS</title>
+    <link>http://example.org/posts/secure-vps/</link>
+    <pubDate>Tue, 12 Dec 2023 10:27:15 &#43;0300</pubDate>
+    <author>Kirill</author>
+    <guid>http://example.org/posts/secure-vps/</guid>
+    <description><![CDATA[<p>После аренды VPS первоочередной задачей является настройка его безопасности.</p>]]></description>
+</item>
+</channel>
+</rss>
