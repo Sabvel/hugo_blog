@@ -5,6 +5,9 @@ draft: false
 tags: ["Безопасность"]
 categories: ["VPS"]
 description: "После аренды VPS первоочередной задачей является настройка безопасности."
+resources:
+- name: "featured-image"
+  src: "vps-security-and-firewall-checklist.jpg"
 ---
 
 После аренды VPS первоочередной задачей является настройка его безопасности.

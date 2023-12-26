@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Параметры конфигурации для Spark-session - Krllz.dev блог</title><meta name="Description" content="Поговорим про начальные параметры для создания Spark-session"><meta property="og:title" content="Параметры конфигурации для Spark-session" />
+<meta property="og:description" content="Поговорим про начальные параметры для создания Spark-session" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/posts/spark-session/" /><meta property="og:image" content="http://example.org/posts/spark-session/spark_logo%202.jpeg" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-12-22T11:13:38+03:00" />
+<meta property="article:modified_time" content="2023-12-22T11:13:38+03:00" /><meta property="og:site_name" content="Personal blog Krllz dev" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="http://example.org/posts/spark-session/spark_logo%202.jpeg" /><meta name="twitter:title" content="Параметры конфигурации для Spark-session"/>
+<meta name="twitter:description" content="Поговорим про начальные параметры для создания Spark-session"/>
+<meta name="application-name" content="Krllz">
+<meta name="apple-mobile-web-app-title" content="Krllz"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://example.org/posts/spark-session/" /><link rel="prev" href="http://example.org/posts/secure-vps/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Параметры конфигурации для Spark-session",
+        "inLanguage": "ru",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/example.org\/posts\/spark-session\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "http:\/\/example.org\/posts\/spark-session\/spark_logo%202.jpeg",
+                            "width":  816 ,
+                            "height":  280 
+                        }],"genre": "posts","keywords": "DE","wordcount":  1103 ,
+        "url": "http:\/\/example.org\/posts\/spark-session\/","datePublished": "2023-12-22T11:13:38+03:00","dateModified": "2023-12-22T11:13:38+03:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Kirill"
+            },"description": "Поговорим про начальные параметры для создания Spark-session"
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Krllz.dev блог"><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Krllz.dev блог"><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Параметры конфигурации для Spark-session</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Kirill</a></span>&nbsp;<span class="post-category">included in <a href="/categories/spark/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Spark</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-12-22">2023-12-22</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1103 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;6 minutes&nbsp;</div>
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/posts/spark-session/spark_logo%202.jpeg"
+        data-srcset="/posts/spark-session/spark_logo%202.jpeg, /posts/spark-session/spark_logo%202.jpeg 1.5x, /posts/spark-session/spark_logo%202.jpeg 2x"
+        data-sizes="auto"
+        alt="/posts/spark-session/spark_logo%202.jpeg"
+        title="Поговорим про начальные параметры для создания Spark-session" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#параметры-конфигурации-драйвера">Параметры конфигурации драйвера</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#параметры-конфигурации-исполнителя">Параметры конфигурации исполнителя</a>
+      <ul>
+        <li><a href="#динамическая-аллокация">Динамическая аллокация</a></li>
+        <li><a href="#статичная-аллокация">Статичная аллокация</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>Поговорим про начальные параметры для создания Spark-session.</p>
+<h1 id="введение">Введение</h1>
+<p>В работе часто сталкиваюсь когда новички в работе со Spark, не понимают как устроен его конфиг, что за что отвечает и в конце концов сколько ресурсов кластера будет потреблять та или инная сессия - давайте разбираться. Тк мы работает с большими данными, то и разбирать будем на примере Cluster - mod работы Spark-приложения.</p>
+<p><figure><a class="lightgallery" href="/posts/spark-session/Spark-Applications.png" title="Схема работы драйвера и исполнителя" data-thumbnail="/posts/spark-session/Spark-Applications.png" data-sub-html="<h2>Схема работы драйвера и исполнителя</h2><p>Схема работы драйвера и исполнителя</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/posts/spark-session/Spark-Applications.png"
+            data-srcset="/posts/spark-session/Spark-Applications.png, /posts/spark-session/Spark-Applications.png 1.5x, /posts/spark-session/Spark-Applications.png 2x"
+            data-sizes="auto"
+            alt="/posts/spark-session/Spark-Applications.png" width="568" height="337" />
+    </a><figcaption class="image-caption">Схема работы драйвера и исполнителя</figcaption>
+    </figure></p>
+<h1 id="драйвер">Драйвер</h1>
+<p><code>Driver</code> - мастер процесс, который обеспечивает взаимодействие и распределение нагрузки от пользователя, до исполнителя(Executor). Драйвер создает задачи(task) для исполнителя. Также важно понимать, что драйвер создается с момента создания Spark-session и живет до ее окончания.</p>
+<h2 id="параметры-конфигурации-драйвера">Параметры конфигурации драйвера</h2>
+<p><code>spark.driver.memory</code> - Память драйвера отвечает за управлением задачами и сбор результатов.
+<code>spark.driver.memoryOverhead</code> - это &ldquo;расширяемая&rdquo; память которая отвечает за накладные расходы. Обычно данный параметр по умолчанию равен 6 - 10% от driver.memory, но минимум 384мб.</p>
+<p>У драйвера на самом деле гораздо больше возможных конфигураций, но основа которая используется в работе это память. Размер spark.driver.memory обычно из-за специфики своей работы не требует больших объемов если вы не переводите DataFrame в RDD или Collect. Поэтому я бы условился, что объем памяти драйвера в 2 раза меньше памяти исполнителя, но минимум 1 гб.</p>
+<h1 id="исполнитель">Исполнитель</h1>
+<p><code>Executor</code> - исполнитель выполняет все рабочие задачи (расчеты), в случае отказа одного из исполнителей другие стораются перехватить его задачу если это возможно, также исполнитель возвращает результат работы драйверу. Чем больше исполнителей, тем больше может выполняться параллельных задач если это допускает код. Но слишком много исполнителей предполагает потребление больших ресурсов.</p>
+<h2 id="параметры-конфигурации-исполнителя">Параметры конфигурации исполнителя</h2>
+<h3 id="динамическая-аллокация">Динамическая аллокация</h3>
+<p><code>spark.dynamicAllocation.enabled</code> - изначально параметр со значением <strong>false</strong>.
+Данный параметр отвечает за динамическую аллокацию ресурсов сервера. То есть если вы задали некие параметры по динамическим ресурсам, то в зависимости от необходимости Spark сам будет понимать сколько ему надо задействовать ресурсов исходя из максимума и минимума который был задан. Но не все так гладко, если в конфигурации поставить слишком много ресурсов, то в какой-то момент Spark их все будет утилизировать, просто потому что может не очищать trash и тд. С другой стороны если у вас есть кластер, на котором работает много людей и переодически ваша очередь полностью утилизируется, то динамическая аллокация может дать плохой результат.</p>
+<p>Например под определенный расчет Spark понизит число потребляемых ресурсов, а следующий за ним потребует гораздо большего числа этих самых ресурсов, но эти ресурсы утилизирует кто-то другой, тогда скорее всего ваш запрос просто упадет их-за нехватки ресурсов.
+Резюмируя, динамическая аллокация больше подходит под &ldquo;простые&rdquo; расчеты или ad-hoc, тк позволяют не отнимать лишние ресурсы и по окончанию работы запросов приводит конфигурацию к минимально заданной конфигурации.</p>
+<p><code>spark.dynamicAllocation.executorIdleTimeout </code>- по умолчанию равен 60 секунд. Параметр отвечающий через сколько будет удален исполнитель при его простое более чем указанное время.</p>
+<p><code>spark.dynamicAllocation.initialExecutors</code> - количество испольнителей с которыми будет инициализироваться динамическая аллокация.</p>
+<p><code>spark.dynamicAllocation.maxExecutors</code> - максимальное количество исполнителей которое может быть использовано в Spark-session.</p>
+<p><code>spark.dynamicAllocation.minExecutors</code> - минимальное количество исполнителей которое может быть использовано в Spark-session.</p>
+<p><code>spark.executor.memory</code> - количество памяти на исполнитель.</p>
+<p><code>spark.executor.cores</code> - каждый исполнитель как и драйвер (но драйверу хватает 1 ядра которое стоит по умолчанию) обладает помимо параметров памяти еще и ядрами. Чем больше ядер - тем выше параллельность расчета задачи. Но тут важно учитывать, что ядра и память по сути связаны и добавляя большое количество ядер, за счет высокой паралелльности может закончится память. В таких случаях имеет смысл убавить количество ядер и добавить исполнитель.</p>
+<p><code>spark.executor.memoryOverhead</code>- это &ldquo;расширяемая&rdquo; память которая отвечает за накладные расходы. Обычно данный параметр по умолчанию равен 6 - 10% от executor.memory, но минимум 384мб.</p>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>Note<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p><strong>Итого</strong> получаем следующий набор параметров для конфигурации <strong>динамичной</strong> аллокации:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">spark</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">memory</span> <span class="o">=</span> <span class="mi">5</span><span class="n">g</span>
+</span></span><span class="line"><span class="cl"><span class="n">spark</span><span class="o">.</span><span class="n">dynamicAllocation</span><span class="o">.</span><span class="n">enabled</span> <span class="o">=</span> <span class="n">true</span>
+</span></span><span class="line"><span class="cl"><span class="n">spark</span><span class="o">.</span><span class="n">dynamicAllocation</span><span class="o">.</span><span class="n">initialExecutors</span> <span class="o">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="n">spark</span><span class="o">.</span><span class="n">dynamicAllocation</span><span class="o">.</span><span class="n">minExecutors</span> <span class="o">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="n">spark</span><span class="o">.</span><span class="n">dynamicAllocation</span><span class="o">.</span><span class="n">maxExecutors</span> <span class="o">=</span> <span class="mi">3</span>
+</span></span><span class="line"><span class="cl"><span class="n">spark</span><span class="o">.</span><span class="n">executor</span><span class="o">.</span><span class="n">memory</span> <span class="o">=</span> <span class="mi">10</span><span class="n">g</span>
+</span></span><span class="line"><span class="cl"><span class="n">spark</span><span class="o">.</span><span class="n">executor</span><span class="o">.</span><span class="n">cores</span> <span class="o">=</span> <span class="mi">3</span>
+</span></span><span class="line"><span class="cl"><span class="n">spark</span><span class="o">.</span><span class="n">executor</span><span class="o">.</span><span class="n">memoryOverhead</span> <span class="o">=</span> <span class="mi">1</span><span class="n">g</span>
+</span></span><span class="line"><span class="cl"><span class="n">spark</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">memoryOverhead</span> <span class="o">=</span> <span class="mi">1</span><span class="n">g</span>
+</span></span></code></pre></div></div>
+        </div>
+    </div>
+<h3 id="статичная-аллокация">Статичная аллокация</h3>
+<p><code>spark.dynamicAllocation.enabled</code> - значение из прошлого пункта в данном случае обязательно должно быть <strong>false</strong>.</p>
+<p><code>spark.executor.instances</code> - сколько будет использовано исполнителей в Spark-session.</p>
+<p><code>spark.executor.memory</code> - параметр работает также как и в динамической аллокации.</p>
+<p><code>spark.executor.cores</code> - параметр работает также как и в динамической аллокации.</p>
+<p><code>spark.executor.memoryOverhead</code> - параметр работает также как и в динамической аллокации.</p>
+<p>Как уже затронул тему в динамической аллокации, статичная аллокация - полезна больше для промышленных расчетов, когда более важна стабильность. В идеале подобные расчеты не должны запускать вручную тк по окончании должна убиваться Spark-session, чтобы высвободить аллоцированные ресурсы, что часто забывается.</p>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>Note<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p><strong>Итого</strong> получаем следующий набор параметров для конфигурации <strong>статичной</strong> аллокации:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">spark</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">memory</span> <span class="o">=</span> <span class="mi">5</span><span class="n">g</span>
+</span></span><span class="line"><span class="cl"><span class="n">spark</span><span class="o">.</span><span class="n">executor</span><span class="o">.</span><span class="n">instances</span> <span class="o">=</span> <span class="mi">3</span>
+</span></span><span class="line"><span class="cl"><span class="n">spark</span><span class="o">.</span><span class="n">executor</span><span class="o">.</span><span class="n">memory</span> <span class="o">=</span> <span class="mi">10</span><span class="n">g</span>
+</span></span><span class="line"><span class="cl"><span class="n">spark</span><span class="o">.</span><span class="n">executor</span><span class="o">.</span><span class="n">cores</span> <span class="o">=</span> <span class="mi">3</span>
+</span></span><span class="line"><span class="cl"><span class="n">spark</span><span class="o">.</span><span class="n">executor</span><span class="o">.</span><span class="n">memoryOverhead</span> <span class="o">=</span> <span class="mi">1</span><span class="n">g</span>
+</span></span><span class="line"><span class="cl"><span class="n">spark</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">memoryOverhead</span> <span class="o">=</span> <span class="mi">1</span><span class="n">g</span>
+</span></span></code></pre></div></div>
+        </div>
+    </div>
+<h1 id="работа-с-партициями">Работа с партициями</h1>
+<p>Тема работы с партициями очень объемная и требует отдельного поста но не затронуть сейчас ее нельзя тк партиции требуют дополнительных настроек в конфигурации. В данном случае я лишь рассмотрю основные прицнипы.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">spark</span><span class="o">.</span><span class="n">hadoop</span><span class="o">.</span><span class="n">hive</span><span class="o">.</span><span class="n">exec</span><span class="o">.</span><span class="n">dynamic</span><span class="o">.</span><span class="n">partition</span><span class="o">=</span><span class="n">true</span>
+</span></span><span class="line"><span class="cl"><span class="n">spark</span><span class="o">.</span><span class="n">hadoop</span><span class="o">.</span><span class="n">hive</span><span class="o">.</span><span class="n">exec</span><span class="o">.</span><span class="n">dynamic</span><span class="o">.</span><span class="n">partition</span><span class="o">.</span><span class="n">mode</span><span class="o">=</span><span class="n">nonstrict</span>
+</span></span></code></pre></div><p>Тут на самом деле сложно что-то добавить. Эти 2 команды позволяют в случае <code>insert into</code> в таблицу с <code>mod=overwrite</code> не перезаписать всю таблицу целиком, а переписать только те партиции которые уже существуют и находятся в <code>DataFrame</code> который вы хотите записывать. Если же таких партиций нет, то просто будут созданы новые партиции. В случае если в таблице партиций нет, то эти настройки никак не повлияют и таблица будет полностью перезаписана полностью.</p>
+<p>Но раз ужу заговорили про партиции, то лишь добавлю, что хороший практикой будет делать repartition при сохранении/инсерте таблицы.
+Пример:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">df</span><span class="o">.</span><span class="n">repartition</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">write</span><span class="o">.</span><span class="n">partitionBy</span><span class="p">(</span><span class="s1">&#39;column_name&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mode</span><span class="p">(</span><span class="s1">&#39;overwrite&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">saveAsTable</span><span class="p">(</span><span class="s1">&#39;table_name&#39;</span><span class="p">)</span>
+</span></span></code></pre></div><p>То есть тут мы получим таблицу <code>table_name</code> с партициями по <code>column_name</code>, где внутри партиции будет сохранен 1 parquet файл. Если размер parquet файла превышает объем 256мб и при этом может быть поделен до размера до 256мб, то лучше так и сделать. То есть например мы получили файл 512мб, то просто указываем <code>repartition(2)</code>. Иначе может возникать перекос в данных и все сопутствующие с этим проблемы. Но &ldquo;мельчить&rdquo; файлы тоже не стоит, тк Hadoop хранит каждый файл в метасторе и тем самым забивает его от чего страдает производительность.</p>
+<h1 id="итог">Итог</h1>
+<p>Давайте подводить итоги, мы разобрались с базовыми настройками конфигурации в Spark. Поняли когда лучше динамическая или статичная аллокация ресурсов, а также научились не перезаписывать таблицу полностью при попытке добавления новых партиций. Но как понять сколько нужно памяти или ядер под ту или инную задачу?
+На самом деле однозначного ответа - нет. Все конфигурации подбираются исходя из конфигураций вашего кластера, его загруженности, объема задачи которую вы хотите совершить и тд.
+Но давайте с учетом уже имеющейся конфигурации рассчитаем сколько мы будет отнимать ресурсов у кластера:</p>
+<p><strong>Количество ядер</strong> = <code>spark.driver.cores (по умолчанию = 1) + (spark.executor.instances * spark.executor.cores)</code></p>
+<p><strong>Количество памяти:</strong></p>
+<pre tabindex="0"><code>((spark.executor.instances * spark.executor.memory) +
+(spark.executor.instances(или spark.dynamicAllocation.maxExecutors) * spark.executor.cores))
++ (spark.driver.memory + spark.driver.memoryOverhead)
+</code></pre><p>Если рассматривать конфигурацию из нашего примера:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">spark</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">memory</span> <span class="o">=</span> <span class="mi">5</span><span class="n">g</span>
+</span></span><span class="line"><span class="cl"><span class="n">spark</span><span class="o">.</span><span class="n">dynamicAllocation</span><span class="o">.</span><span class="n">enabled</span> <span class="o">=</span> <span class="n">true</span>
+</span></span><span class="line"><span class="cl"><span class="n">spark</span><span class="o">.</span><span class="n">dynamicAllocation</span><span class="o">.</span><span class="n">initialExecutors</span> <span class="o">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="n">spark</span><span class="o">.</span><span class="n">dynamicAllocation</span><span class="o">.</span><span class="n">minExecutors</span> <span class="o">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="n">spark</span><span class="o">.</span><span class="n">dynamicAllocation</span><span class="o">.</span><span class="n">maxExecutors</span> <span class="o">=</span> <span class="mi">3</span>
+</span></span><span class="line"><span class="cl"><span class="n">spark</span><span class="o">.</span><span class="n">executor</span><span class="o">.</span><span class="n">memory</span> <span class="o">=</span> <span class="mi">10</span><span class="n">g</span>
+</span></span><span class="line"><span class="cl"><span class="n">spark</span><span class="o">.</span><span class="n">executor</span><span class="o">.</span><span class="n">cores</span> <span class="o">=</span> <span class="mi">3</span>
+</span></span><span class="line"><span class="cl"><span class="n">spark</span><span class="o">.</span><span class="n">executor</span><span class="o">.</span><span class="n">memoryOverhead</span> <span class="o">=</span> <span class="mi">1</span><span class="n">g</span>
+</span></span><span class="line"><span class="cl"><span class="n">spark</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">memoryOverhead</span> <span class="o">=</span> <span class="mi">1</span><span class="n">g</span>
+</span></span></code></pre></div><p>Считаем максимальные ресурсы которые будет потреблять наша Spark-session:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1">#Ядер</span>
+</span></span><span class="line"><span class="cl"><span class="mi">10</span> <span class="o">=</span> <span class="mi">1</span><span class="o">+</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="mi">3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Память</span>
+</span></span><span class="line"><span class="cl"><span class="mi">39</span> <span class="o">=</span> <span class="p">((</span><span class="mi">3</span> <span class="o">*</span> <span class="mi">10</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">3</span> <span class="o">*</span> <span class="mi">1</span><span class="p">))</span><span class="o">+</span> <span class="p">(</span><span class="mi">5</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+</span></span></code></pre></div></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2023-12-22</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="http://example.org/posts/spark-session/" data-hashtag="DE"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="http://example.org/posts/spark-session/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/de/">DE</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/secure-vps/" class="prev" rel="prev" title="Настройка безопасности VPS"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Настройка безопасности VPS</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2019 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Kirill</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/typeit/index.umd.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/mhchem.min.js"></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"cookieconsent":{"content":{"dismiss":"Got it!","link":"Learn more","message":"This website uses Cookies to improve your experience."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"data":{"id-1":"Krllz.dev","id-2":"Krllz.dev"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
