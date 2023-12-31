@@ -3,7 +3,15 @@
         <title>All Posts - Krllz.dev блог</title>
         <link>http://example.org/posts/</link>
         <description>All Posts | Krllz.dev блог</description>
-        <generator>Hugo -- gohugo.io</generator><language>ru</language><lastBuildDate>Fri, 22 Dec 2023 11:13:38 &#43;0300</lastBuildDate><atom:link href="http://example.org/posts/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>ru</language><lastBuildDate>Thu, 28 Dec 2023 13:18:25 &#43;0300</lastBuildDate><atom:link href="http://example.org/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Настройка Webhook для Telegram-Бота на Aiogram3</title>
+    <link>http://example.org/posts/telegram-bot-webhook/</link>
+    <pubDate>Thu, 28 Dec 2023 13:18:25 &#43;0300</pubDate>
+    <author>Kirill</author>
+    <guid>http://example.org/posts/telegram-bot-webhook/</guid>
+    <description><![CDATA[<p>Разберем Webhook на Aiogram 3</p>]]></description>
+</item>
+<item>
     <title>Параметры конфигурации для Spark-session</title>
     <link>http://example.org/posts/spark-session/</link>
     <pubDate>Fri, 22 Dec 2023 11:13:38 &#43;0300</pubDate>

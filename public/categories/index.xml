@@ -3,20 +3,20 @@
         <title>Categories - Category - Krllz.dev блог</title>
         <link>http://example.org/categories/</link>
         <description>Categories - Category - Krllz.dev блог</description>
-        <generator>Hugo -- gohugo.io</generator><language>ru</language><lastBuildDate>Fri, 22 Dec 2023 11:13:38 &#43;0300</lastBuildDate><atom:link href="http://example.org/categories/" rel="self" type="application/rss+xml" /><item>
-    <title>Spark</title>
-    <link>http://example.org/categories/spark/</link>
-    <pubDate>Fri, 22 Dec 2023 11:13:38 &#43;0300</pubDate>
+        <generator>Hugo -- gohugo.io</generator><language>ru</language><lastBuildDate>Thu, 28 Dec 2023 13:18:25 &#43;0300</lastBuildDate><atom:link href="http://example.org/categories/" rel="self" type="application/rss+xml" /><item>
+    <title>VPS</title>
+    <link>http://example.org/categories/vps/</link>
+    <pubDate>Thu, 28 Dec 2023 13:18:25 &#43;0300</pubDate>
     <author>Kirill</author>
-    <guid>http://example.org/categories/spark/</guid>
+    <guid>http://example.org/categories/vps/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
-    <title>VPS</title>
-    <link>http://example.org/categories/vps/</link>
-    <pubDate>Tue, 12 Dec 2023 10:27:15 &#43;0300</pubDate>
+    <title>DE</title>
+    <link>http://example.org/categories/de/</link>
+    <pubDate>Fri, 22 Dec 2023 11:13:38 &#43;0300</pubDate>
     <author>Kirill</author>
-    <guid>http://example.org/categories/vps/</guid>
+    <guid>http://example.org/categories/de/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>

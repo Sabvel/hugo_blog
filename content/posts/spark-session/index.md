@@ -2,12 +2,12 @@
 title: 'Параметры конфигурации для Spark-session'
 date: 2023-12-22T11:13:38+03:00
 draft: false
-tags: ["DE"]
-categories: ["Spark"]
+tags: ["Spark"]
+categories: ["DE"]
 description: "Поговорим про начальные параметры для создания Spark-session"
-resources:
-- name: "featured-image"
-  src: "spark_logo 2.jpeg"
+# resources:
+# - name: "featured-image"
+#   src: "spark_logo 2.jpeg"
 
 ---
 Поговорим про начальные параметры для создания Spark-session.

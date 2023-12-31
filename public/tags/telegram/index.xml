@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Telegram - Tag - Krllz.dev блог</title>
+        <link>http://example.org/tags/telegram/</link>
+        <description>Telegram - Tag - Krllz.dev блог</description>
+        <generator>Hugo -- gohugo.io</generator><language>ru</language><lastBuildDate>Thu, 28 Dec 2023 13:18:25 &#43;0300</lastBuildDate><atom:link href="http://example.org/tags/telegram/" rel="self" type="application/rss+xml" /><item>
+    <title>Настройка Webhook для Telegram-Бота на Aiogram3</title>
+    <link>http://example.org/posts/telegram-bot-webhook/</link>
+    <pubDate>Thu, 28 Dec 2023 13:18:25 &#43;0300</pubDate>
+    <author>Kirill</author>
+    <guid>http://example.org/posts/telegram-bot-webhook/</guid>
+    <description><![CDATA[<p>Разберем Webhook на Aiogram 3</p>]]></description>
+</item>
+</channel>
+</rss>

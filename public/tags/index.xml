@@ -3,12 +3,28 @@
         <title>Tags - Tag - Krllz.dev блог</title>
         <link>http://example.org/tags/</link>
         <description>Tags - Tag - Krllz.dev блог</description>
-        <generator>Hugo -- gohugo.io</generator><language>ru</language><lastBuildDate>Fri, 22 Dec 2023 11:13:38 &#43;0300</lastBuildDate><atom:link href="http://example.org/tags/" rel="self" type="application/rss+xml" /><item>
-    <title>DE</title>
-    <link>http://example.org/tags/de/</link>
+        <generator>Hugo -- gohugo.io</generator><language>ru</language><lastBuildDate>Thu, 28 Dec 2023 13:18:25 &#43;0300</lastBuildDate><atom:link href="http://example.org/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>Aiogram3</title>
+    <link>http://example.org/tags/aiogram3/</link>
+    <pubDate>Thu, 28 Dec 2023 13:18:25 &#43;0300</pubDate>
+    <author>Kirill</author>
+    <guid>http://example.org/tags/aiogram3/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Telegram</title>
+    <link>http://example.org/tags/telegram/</link>
+    <pubDate>Thu, 28 Dec 2023 13:18:25 &#43;0300</pubDate>
+    <author>Kirill</author>
+    <guid>http://example.org/tags/telegram/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Spark</title>
+    <link>http://example.org/tags/spark/</link>
     <pubDate>Fri, 22 Dec 2023 11:13:38 &#43;0300</pubDate>
     <author>Kirill</author>
-    <guid>http://example.org/tags/de/</guid>
+    <guid>http://example.org/tags/spark/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>

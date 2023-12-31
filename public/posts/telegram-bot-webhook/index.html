@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Настройка Webhook для Telegram-Бота на Aiogram3 - Krllz.dev блог</title><meta name="Description" content="Разберем Webhook на Aiogram 3"><meta property="og:title" content="Настройка Webhook для Telegram-Бота на Aiogram3" />
+<meta property="og:description" content="Разберем Webhook на Aiogram 3" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/posts/telegram-bot-webhook/" /><meta property="og:image" content="http://example.org/logo.png" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-12-28T13:18:25+03:00" />
+<meta property="article:modified_time" content="2023-12-28T13:18:25+03:00" /><meta property="og:site_name" content="Personal blog Krllz dev" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="http://example.org/logo.png" /><meta name="twitter:title" content="Настройка Webhook для Telegram-Бота на Aiogram3"/>
+<meta name="twitter:description" content="Разберем Webhook на Aiogram 3"/>
+<meta name="application-name" content="Krllz">
+<meta name="apple-mobile-web-app-title" content="Krllz"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://example.org/posts/telegram-bot-webhook/" /><link rel="prev" href="http://example.org/posts/spark-session/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Настройка Webhook для Telegram-Бота на Aiogram3",
+        "inLanguage": "ru",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/example.org\/posts\/telegram-bot-webhook\/"
+        },"genre": "posts","keywords": "Telegram, Aiogram3","wordcount":  1692 ,
+        "url": "http:\/\/example.org\/posts\/telegram-bot-webhook\/","datePublished": "2023-12-28T13:18:25+03:00","dateModified": "2023-12-28T13:18:25+03:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Kirill"
+            },"description": "Разберем Webhook на Aiogram 3"
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Krllz.dev блог"><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Krllz.dev блог"><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Настройка Webhook для Telegram-Бота на Aiogram3</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Kirill</a></span>&nbsp;<span class="post-category">included in <a href="/categories/vps/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>VPS</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-12-28">2023-12-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1692 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;8 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#отладка">Отладка</a>
+      <ul>
+        <li><a href="#ngrok">Ngrok</a></li>
+        <li><a href="#aiogram-и-aiohttp-echo-bot">Aiogram и Aiohttp echo-Bot</a></li>
+      </ul>
+    </li>
+    <li><a href="#дополнительная-информация">Дополнительная информация</a>
+      <ul>
+        <li><a href="#обработка-сторонних-webhook">Обработка сторонних webhook</a></li>
+        <li><a href="#полезности">Полезности</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>Разберем Webhook на Aiogram 3</p>
+<h1 id="webhook">Webhook</h1>
+<p>Давайте для начала разберем что это и для чего. <code>Webhook</code> - это способ отслеживания изменений на стороне Сервера-информатора через протокол HTTP. То есть сервер на котором произошли изменения отправляет на наш HTTP эти самые изменения, которые мы в последствии можем обрабатывать. Из этого вытекает главный плюс такого подхода в сравнении с <code>Polling</code>, вместо того что бы с какой то переодичностью отправлять запросы на сервер заправшивая у него информацию о возможных изменениях, мы просто слушаем и получаем эти самые изменения от сервера-источника.</p>
+<p><figure><a class="lightgallery" href="/posts/telegram-bot-webhook/polling_vs_webhook.jpeg" title="Схема работы polling и webhook" data-thumbnail="/posts/telegram-bot-webhook/polling_vs_webhook.jpeg" data-sub-html="<h2>Схема работы polling и webhook</h2><p>Схема работы polling и webhook</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/posts/telegram-bot-webhook/polling_vs_webhook.jpeg"
+            data-srcset="/posts/telegram-bot-webhook/polling_vs_webhook.jpeg, /posts/telegram-bot-webhook/polling_vs_webhook.jpeg 1.5x, /posts/telegram-bot-webhook/polling_vs_webhook.jpeg 2x"
+            data-sizes="auto"
+            alt="/posts/telegram-bot-webhook/polling_vs_webhook.jpeg" width="640" height="442" />
+    </a><figcaption class="image-caption">Схема работы polling и webhook</figcaption>
+    </figure></p>
+<p>Такой подход позволяет:</p>
+<ul>
+<li>Оперативнее обрабатывать данные.</li>
+<li>Дает меньшую нагрузку на наш сервер.</li>
+</ul>
+<p>Минусы данного подхода:</p>
+<ul>
+<li>Сложнее настраивать.</li>
+<li>Необходим url-домен.</li>
+<li>Установка SSL.</li>
+</ul>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>Note<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><strong>ВАЖНО</strong>: Webhook требует шифрования SSL. Это необходимо для обеспечения безопасного соединения между серверами.
+Не все SSL-подписи поддерживаются. Я использовал <strong>Let&rsquo;s Encrypt.</strong> через <code>acme</code></div>
+        </div>
+    </div>
+<h2 id="отладка">Отладка</h2>
+<h3 id="ngrok">Ngrok</h3>
+<p>В первую очередь, для отладки работы рекомендую <a href="https://ngrok.com" target="_blank" rel="noopener noreffer ">Ngrok</a>, довольно простой и в тоже время удобный сервис. Позволяющий переадресовывать запросы из интернета к сайту поднятому локально на компьютере. А также просматривать в UI запросы, которые были на него получены.
+Как следует из руководства на сайте для установки и запуска на MacOs необходимо:</p>
+<ul>
+<li>Установить Ngrok</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">brew install ngrok/ngrok/ngrok
+</span></span></code></pre></div><ul>
+<li>Добавить ваш персональный токен</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ngrok config add-authtoken YOUR_TOKEN
+</span></span></code></pre></div><ul>
+<li>Запуститься на любом свободном порту</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ngrok http PORT
+</span></span></code></pre></div><div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>Note<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p>Замените:</p>
+<p><code>YOUR_TOKEN</code> - на ваш токен ngrok</p>
+<p><code>PORT</code> - на свободный порт</p>
+</div>
+        </div>
+    </div>
+<p>В результате запуска последнего скрипта вы увидете следующее:
+<figure><a class="lightgallery" href="/posts/telegram-bot-webhook/ngrok.png" title="Скриншот работы ngrok" data-thumbnail="/posts/telegram-bot-webhook/ngrok.png" data-sub-html="<h2>Скриншот работы ngrok</h2><p>Скриншот работы ngrok</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/posts/telegram-bot-webhook/ngrok.png"
+            data-srcset="/posts/telegram-bot-webhook/ngrok.png, /posts/telegram-bot-webhook/ngrok.png 1.5x, /posts/telegram-bot-webhook/ngrok.png 2x"
+            data-sizes="auto"
+            alt="/posts/telegram-bot-webhook/ngrok.png" width="1374" height="452" />
+    </a><figcaption class="image-caption">Скриншот работы ngrok</figcaption>
+    </figure>
+Если увидели <code>Session Status - online</code>- значит все работает и можете перейти и проверить web-страницы.</p>
+<h3 id="aiogram-и-aiohttp-echo-bot">Aiogram и Aiohttp echo-Bot</h3>
+<h4 id="настройка">Настройка</h4>
+<p>Здесь мы используем связку <strong>Aiogram</strong> и <strong>Aiohttp</strong>, которые отлично взамодействуют.</p>
+<p>Опять же воспользуемся примерами использования Телеграм-Бота на Webhook с официального сайта <a href="https://docs.aiogram.dev/en/dev-3.x/dispatcher/webhook.html" target="_blank" rel="noopener noreffer ">Aiogram</a>.
+И немного его изменим:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">logging</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">sys</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">ssl</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">aiohttp</span> <span class="kn">import</span> <span class="n">web</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">asyncio</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">aiogram</span> <span class="kn">import</span> <span class="n">Bot</span><span class="p">,</span> <span class="n">Dispatcher</span><span class="p">,</span> <span class="n">Router</span><span class="p">,</span> <span class="n">types</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">aiogram.filters</span> <span class="kn">import</span> <span class="n">CommandStart</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">aiogram.types</span> <span class="kn">import</span> <span class="n">Message</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">aiogram.utils.markdown</span> <span class="kn">import</span> <span class="n">hbold</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">aiogram.webhook.aiohttp_server</span> <span class="kn">import</span> <span class="n">SimpleRequestHandler</span><span class="p">,</span> <span class="n">setup_application</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Bot token can be obtained via https://t.me/BotFather</span>
+</span></span><span class="line"><span class="cl"><span class="n">TOKEN</span> <span class="o">=</span> <span class="s2">&#34;679280000:AAHXu3dhjadhasdakbdad2DRxgjZWZcykAR&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Webserver settings</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># bind localhost only to prevent any external access</span>
+</span></span><span class="line"><span class="cl"><span class="n">WEB_SERVER_HOST</span> <span class="o">=</span> <span class="s2">&#34;0.0.0.0&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Port for incoming request from reverse proxy. Should be any available port</span>
+</span></span><span class="line"><span class="cl"><span class="n">WEB_SERVER_PORT</span> <span class="o">=</span> <span class="mi">8443</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Path to webhook route, on which Telegram will send requests</span>
+</span></span><span class="line"><span class="cl"><span class="n">WEBHOOK_PATH</span> <span class="o">=</span> <span class="s2">&#34;/webhook&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Secret key to validate requests from Telegram (optional)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Base URL for webhook will be used to generate webhook URL for Telegram,</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># in this example it is used public DNS with HTTPS support</span>
+</span></span><span class="line"><span class="cl"><span class="n">WEBHOOK_URL</span> <span class="o">=</span> <span class="s2">&#34;https://88ef-194-182-00-01.ngrok-free.app&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># WEBHOOK_SSL_PRIV = &#34;/home/user/cert/key.pem&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># WEBHOOK_SSL_CERT = &#34;/home/user/cert/fullchain.pem&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># All handlers should be attached to the Router (or Dispatcher)</span>
+</span></span><span class="line"><span class="cl"><span class="n">router</span> <span class="o">=</span> <span class="n">Router</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nd">@router.message</span><span class="p">(</span><span class="n">CommandStart</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl"><span class="k">async</span> <span class="k">def</span> <span class="nf">command_start_handler</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="n">Message</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Received command_start: </span><span class="si">{</span><span class="n">message</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    This handler receives messages with `/start` command
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Most event objects have aliases for API methods that can be called in events&#39; context</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># For example if you want to answer to incoming message you can use `message.answer(...)` alias</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># and the target chat will be passed to :ref:`aiogram.methods.send_message.SendMessage`</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># method automatically or call API method directly via</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Bot instance: `bot.send_message(chat_id=message.chat.id, ...)`</span>
+</span></span><span class="line"><span class="cl">    <span class="k">await</span> <span class="n">message</span><span class="o">.</span><span class="n">answer</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Hello, </span><span class="si">{</span><span class="n">hbold</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">from_user</span><span class="o">.</span><span class="n">full_name</span><span class="p">)</span><span class="si">}</span><span class="s2">!&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nd">@router.message</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="k">async</span> <span class="k">def</span> <span class="nf">echo_handler</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="n">types</span><span class="o">.</span><span class="n">Message</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Received message: </span><span class="si">{</span><span class="n">message</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Handler will forward receive a message back to the sender
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    By default, message handler will handle all message types (like text, photo, sticker etc.)
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># Send a copy of the received message</span>
+</span></span><span class="line"><span class="cl">        <span class="k">await</span> <span class="n">message</span><span class="o">.</span><span class="n">send_copy</span><span class="p">(</span><span class="n">chat_id</span><span class="o">=</span><span class="n">message</span><span class="o">.</span><span class="n">chat</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># But not all the types is supported to be copied so need to handle it</span>
+</span></span><span class="line"><span class="cl">        <span class="k">await</span> <span class="n">message</span><span class="o">.</span><span class="n">answer</span><span class="p">(</span><span class="s2">&#34;Nice try!&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">async</span> <span class="k">def</span> <span class="nf">on_startup</span><span class="p">(</span><span class="n">bot</span><span class="p">:</span> <span class="n">Bot</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># If you have a self-signed SSL certificate, then you will need to send a public</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># certificate to Telegram</span>
+</span></span><span class="line"><span class="cl">    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&#34;Bot has been started&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">await</span> <span class="n">bot</span><span class="o">.</span><span class="n">set_webhook</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;</span><span class="si">{</span><span class="n">WEBHOOK_URL</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">WEB_SERVER_PORT</span><span class="si">}{</span><span class="n">WEBHOOK_PATH</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&#34;Webhook has been set up&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Dispatcher is a root router</span>
+</span></span><span class="line"><span class="cl">    <span class="n">bot</span> <span class="o">=</span> <span class="n">Bot</span><span class="p">(</span><span class="n">TOKEN</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">dp</span> <span class="o">=</span> <span class="n">Dispatcher</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># ... and all other routers should be attached to Dispatcher</span>
+</span></span><span class="line"><span class="cl">    <span class="n">dp</span><span class="o">.</span><span class="n">include_router</span><span class="p">(</span><span class="n">router</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Register startup hook to initialize webhook</span>
+</span></span><span class="line"><span class="cl">    <span class="n">dp</span><span class="o">.</span><span class="n">startup</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">on_startup</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Initialize Bot instance with a default parse mode which will be passed to all API calls</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Create aiohttp.web.Application instance</span>
+</span></span><span class="line"><span class="cl">    <span class="n">app</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">Application</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Create an instance of request handler,</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># aiogram has few implementations for different cases of usage</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># In this example we use SimpleRequestHandler which is designed to handle simple cases</span>
+</span></span><span class="line"><span class="cl">    <span class="n">webhook_requests_handler</span> <span class="o">=</span> <span class="n">SimpleRequestHandler</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="n">dispatcher</span><span class="o">=</span><span class="n">dp</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">bot</span><span class="o">=</span><span class="n">bot</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Register webhook handler on application</span>
+</span></span><span class="line"><span class="cl">    <span class="n">webhook_requests_handler</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="n">WEBHOOK_PATH</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># context = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># context.load_cert_chain(</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#     WEBHOOK_SSL_CERT, WEBHOOK_SSL_PRIV</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># )</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Mount dispatcher startup and shutdown hooks to aiohttp application</span>
+</span></span><span class="line"><span class="cl">    <span class="n">setup_application</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">dp</span><span class="p">,</span> <span class="n">bot</span><span class="o">=</span><span class="n">bot</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># And finally start webserver</span>
+</span></span><span class="line"><span class="cl">    <span class="k">await</span> <span class="n">web</span><span class="o">.</span><span class="n">_run_app</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="n">WEB_SERVER_HOST</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="n">WEB_SERVER_PORT</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                        <span class="c1"># ssl_context=context</span>
+</span></span><span class="line"><span class="cl">                        <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s1">&#39;aiogram&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
+</span></span></code></pre></div><p><strong>Переменные</strong>:</p>
+<ul>
+<li><code>TOKEN</code> - токен от Бота</li>
+<li><code>WEB_SERVER_HOST</code> - <code>0.0.0.0.</code>, то есть будем слушать все IP адреса</li>
+<li><code>WEBHOOK_PATH</code> - Путь по которому будут приходить <code>POST</code> уведомление от Телеграм и соответственно который мы будем слушать.</li>
+<li><code>WEB_SERVER_PORT</code> - Телеграм позволяем производить общение только с <code>80, 88, 443, 8443</code> портом. Если у вас 443, то можно не указывать.</li>
+</ul>
+<p><strong>Рассмотрим скрипт и дополним официальное описание:</strong></p>
+<ul>
+<li><code>on_startup</code> - Данный метод меняет настройку Телеграм Бота и переключает его на webhook. Где сообщает, на каком URL с каким портом и по какому пути мы будем ожидать от телеграмма сообщения.</li>
+<li><code>async def main() </code> - сделали метод <code>main</code> асинхронным. Соответсвенно поменяли запуск этого метода на <code>asyncio.run(main())</code></li>
+<li><code>app = web.Application()</code> - создает приложение с пустой web-страницей для приема webhook</li>
+<li><code>web._run_app</code> - тк мы сделали <code>main</code> асинхронным, то здесь указали <code>await</code> и поменяли <code>run_app</code> на <code>_run_app</code></li>
+</ul>
+<p><strong>Переменные при использовании своего домена:</strong></p>
+<ul>
+<li><code>WEBHOOK_SSL_PRIV</code> - Если у вас имеется домен и вы получали SSL например через <strong>Let&rsquo;s Encrypt.</strong> Путь до приватного ключа.</li>
+<li><code>WEBHOOK_SSL_CERT</code> - Если у вас имеется домен и вы получали SSL например через <strong>Let&rsquo;s Encrypt.</strong> Путь до публичного ключа.</li>
+<li><code>context</code> - передаем подписанные сертификаты</li>
+<li><code>ssl_context=context</code> - подписываем поднятую пустую web-страницу нашими сертификатами, для получения SSL/TLS</li>
+</ul>
+<h4 id="запуск">Запуск</h4>
+<p>Для запуска необходимо просто в любом IDE запустить скрипт выше, указав в нем свои переменные.
+После запска можно отправить в вашего Бота сообщение и увидеть, какой webhook мы получили от Телеграм-сервера, перейдя на локальную страницу поднятую в ngrok.</p>
+<p><figure><a class="lightgallery" href="/posts/telegram-bot-webhook/webhook.png" title="Скриншот webhook от Телеграм" data-thumbnail="/posts/telegram-bot-webhook/webhook.png" data-sub-html="<h2>Скриншот webhook от Телеграм</h2><p>Скриншот webhook от Телеграм</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/posts/telegram-bot-webhook/webhook.png"
+            data-srcset="/posts/telegram-bot-webhook/webhook.png, /posts/telegram-bot-webhook/webhook.png 1.5x, /posts/telegram-bot-webhook/webhook.png 2x"
+            data-sizes="auto"
+            alt="/posts/telegram-bot-webhook/webhook.png" width="2358" height="1360" />
+    </a><figcaption class="image-caption">Скриншот webhook от Телеграм</figcaption>
+    </figure></p>
+<p>На мой взгляд это отличный способ для отладки и понимания какие данные к нам придут в webhook.
+Мы смогли запустить Эхо-Бота на Ngrok.</p>
+<p><strong>Для просмотра статуса и настройки вашего webhook у Бота в Телеграм существует следующая ссылка:</strong></p>
+<p><code>https://api.telegram.org/bot&lt;TOKEN_BOT&gt;/getWebhookInfo</code> - Необходимо заменить <code>&lt;TOKEN_BOT&gt;</code>, на токен вашего Бота. По ссылке вы увидите информацию, о статусе включения webhook, по какому URL будет отправляться информация, из-за чего ошибка и тд.</p>
+<h2 id="дополнительная-информация">Дополнительная информация</h2>
+<h3 id="обработка-сторонних-webhook">Обработка сторонних webhook</h3>
+<p>Предположим вы решили написать более серьезного Бота и вам необходимо обрабатывать сторонние webhook. Например для обработки оплаты или какие либо другие.</p>
+<p>То тут ничего сложного, например сделаем простой метод, который будет показывать нам то, что пришло в сторонний webhook и отвечать статусом 200, что бы не было повторных отправлений этого webhook.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">aiohttp.web_request</span> <span class="kn">import</span> <span class="n">Request</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">aiohttp</span> <span class="kn">import</span> <span class="n">web</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">async</span> <span class="k">def</span> <span class="nf">print_webhook</span><span class="p">(</span><span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">req</span> <span class="o">=</span> <span class="k">await</span> <span class="n">request</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">web</span><span class="o">.</span><span class="n">Response</span><span class="p">(</span><span class="n">status</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+</span></span></code></pre></div><p>А теперь там, где мы создавали <code>app</code>- web приложение, мы добавим следующую строчку:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">app</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">Application</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">app</span><span class="o">.</span><span class="n">router</span><span class="o">.</span><span class="n">add_post</span><span class="p">(</span><span class="s2">&#34;/your_webhook_path&#34;</span><span class="p">,</span> <span class="n">print_webhook</span><span class="p">)</span>
+</span></span></code></pre></div><p>Так наше приложение начало слушать <code>https://your_domain.example/your_webhook_path</code> и если туда поступает информация, то срабатывает метод <code>print_webhook</code> в котором вы можете настроить абсолютно любую логику обработки.</p>
+<p>Если у вас несколько разных источников, то просто добавляете новый путь, который будете слушать:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">app</span><span class="o">.</span><span class="n">router</span><span class="o">.</span><span class="n">add_post</span><span class="p">(</span><span class="s2">&#34;/your_webhook_path2&#34;</span><span class="p">,</span> <span class="n">print_webhook</span><span class="p">)</span>
+</span></span></code></pre></div><h3 id="полезности">Полезности</h3>
+<h4 id="передача-дополнительных-параметров-в-app">Передача дополнительных параметров в app</h4>
+<p>Если ваша логика обработки webhook предполагает например ответ пользователю или запись в БД.
+То вы можете просто передать необходимые параметры в <code>app</code>, а затем их извлечь.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">aiogram</span> <span class="kn">import</span> <span class="n">Bot</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">sqlalchemy.ext.asyncio</span> <span class="kn">import</span> <span class="n">AsyncSession</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">app</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">Application</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">app</span><span class="p">[</span><span class="s2">&#34;bot&#34;</span><span class="p">]:</span> <span class="n">Bot</span> <span class="o">=</span> <span class="n">bot</span>
+</span></span><span class="line"><span class="cl"><span class="n">app</span><span class="p">[</span><span class="s2">&#34;session&#34;</span><span class="p">]:</span> <span class="n">AsyncSession</span> <span class="o">=</span> <span class="n">session</span>
+</span></span></code></pre></div><p>Теперь мы просто их извлекаем из web приложения:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">aiogram</span> <span class="kn">import</span> <span class="n">Bot</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">sqlalchemy.ext.asyncio</span> <span class="kn">import</span> <span class="n">AsyncSession</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">async</span> <span class="k">def</span> <span class="nf">print_webhook</span><span class="p">(</span><span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">session</span><span class="p">:</span> <span class="n">AsyncSession</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">app</span><span class="p">[</span><span class="s2">&#34;session&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">bot</span><span class="p">:</span> <span class="n">Bot</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">app</span><span class="p">[</span><span class="s2">&#34;bot&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">req</span> <span class="o">=</span> <span class="k">await</span> <span class="n">request</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">await</span> <span class="n">write_webhook</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">req</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">await</span> <span class="n">bot</span><span class="o">.</span><span class="n">send_message</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="n">chat_id</span><span class="o">=</span><span class="n">tg_user_id</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="sa">f</span><span class="s2">&#34;hello, webhook:</span><span class="se">\n\n</span><span class="s2"> </span><span class="si">{</span><span class="n">req</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">,</span> <span class="n">reply_markup</span><span class="o">=</span><span class="n">your_keyboard</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">web</span><span class="o">.</span><span class="n">Response</span><span class="p">(</span><span class="n">status</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+</span></span></code></pre></div><p>В данном примере мы извлекли из <code>app</code> - Бота и сессию к БД. После чего с помощью метода <code>write_webhook</code> <em>(метод указан просто для примера, скрипт метода будет отличаться в зависимости от строения вашей БД и задачи)</em> записали полученный webhook в БД. После чего отправили сообщение на <code>tg_user_id</code> в котором также полностью передали всю полученную информацию.</p>
+<h4 id="ссылки-и-команды">Ссылки и команды</h4>
+<p>Оставлю <strong>ссылки</strong> которые использовались при подготовке данной статьи:</p>
+<ul>
+<li><a href="https://core.telegram.org/bots/webhooks#a-verified-supported-certificate" target="_blank" rel="noopener noreffer ">https://core.telegram.org/bots/webhooks#a-verified-supported-certificate</a> - хорошее руководство по webhook от Телеграм</li>
+<li><a href="https://docs.aiogram.dev/en/dev-3.x/dispatcher/webhook.html" target="_blank" rel="noopener noreffer ">https://docs.aiogram.dev/en/dev-3.x/dispatcher/webhook.html</a> - руководство по webhook от Aiogram</li>
+<li><code>https://api.telegram.org/bot&lt;TOKEN_BOT&gt;/getWebhookInfo </code>- как уже писал ранее, меняем <code>&lt;TOKEN_BOT&gt;</code> на токен вашего Бота и получаем статус подключения Бота к Webhook.</li>
+</ul>
+<p><strong>Команды</strong>:</p>
+<ul>
+<li>
+<p><code>curl -F &quot;url=&quot; https://api.telegram.org/bot&lt;TOKEN_BOT&gt;/setWebhook</code> - сброс настроек webHook. Меняем <code>&lt;TOKEN_BOT&gt;</code> на токен вашего Бота. Необходимо использовать если вы допустим использовали один домен на 2 разных ботах.</p>
+</li>
+<li>
+<p><code>curl -F &quot;url=https://&lt;example_hook.example.com&gt;:&lt;PORT&gt;/&lt;webHook_Path&gt;&quot; https://api.telegram.org/bot&lt;TOKEN_BOT&gt;/setWebhook</code> - По сути эту команду мы отправляем в методе <code>on_startup</code>. Но хочу подсветить момент, если вы при разработке меняете Ботов, домены и тд. то бывают баги когда вроде бы все настроено, но почему то не работает. Мне помогла отправка данной команды после старта Бота, когда я получал ошибку <code>connection_refused</code>. В последствии при рестартах бота данного бага не наблюдалось. Но если менял Бота, то баг повторялся.</p>
+</li>
+</ul>
+<h4 id="безопасность">Безопасность</h4>
+<p>Для обеспечения безопасности работы вашего приложения, крайне рекомендуется ограничить IP адреса от которых принимается webhook.
+Обычно сервисы которые отправляют информацию, указывают IP-адреса которые они используют.</p>
+<ul>
+<li>Для ограничения IP вы можете в скрипте проверять откуда вам поступил webhook</li>
+</ul>
+<p>Пример:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">ipaddress</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">ips</span> <span class="o">=</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;149.154.160.0/20&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;91.108.4.0/22&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">async</span> <span class="k">def</span> <span class="nf">print_webhook</span><span class="p">(</span><span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">client_ip</span> <span class="o">=</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="n">request</span><span class="o">.</span><span class="n">headers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;X-Real-IP&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="ow">or</span> <span class="n">request</span><span class="o">.</span><span class="n">headers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;X-Forwarded-For&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="ow">or</span> <span class="n">request</span><span class="o">.</span><span class="n">remote</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">subnet</span> <span class="ow">in</span> <span class="n">ips</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="s2">&#34;/&#34;</span> <span class="ow">in</span> <span class="n">subnet</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">ipaddress</span><span class="o">.</span><span class="n">ip_address</span><span class="p">(</span><span class="n">client_ip</span><span class="p">)</span> <span class="ow">in</span> <span class="n">ipaddress</span><span class="o">.</span><span class="n">ip_network</span><span class="p">(</span><span class="n">subnet</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">                <span class="n">f</span> <span class="o">=</span> <span class="kc">False</span>
+</span></span><span class="line"><span class="cl">                <span class="k">break</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">client_ip</span> <span class="o">==</span> <span class="n">subnet</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">f</span> <span class="o">=</span> <span class="kc">False</span>
+</span></span><span class="line"><span class="cl">                <span class="k">break</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">web</span><span class="o">.</span><span class="n">Response</span><span class="p">(</span><span class="n">status</span><span class="o">=</span><span class="mi">403</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">session</span><span class="p">:</span> <span class="n">AsyncSession</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">app</span><span class="p">[</span><span class="s2">&#34;session&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">bot</span><span class="p">:</span> <span class="n">Bot</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">app</span><span class="p">[</span><span class="s2">&#34;bot&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">req</span> <span class="o">=</span> <span class="k">await</span> <span class="n">request</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">await</span> <span class="n">write_webhook</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">req</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">await</span> <span class="n">bot</span><span class="o">.</span><span class="n">send_message</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="n">chat_id</span><span class="o">=</span><span class="n">tg_user_id</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="sa">f</span><span class="s2">&#34;hello, webhook:</span><span class="se">\n\n</span><span class="s2"> </span><span class="si">{</span><span class="n">req</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">,</span> <span class="n">reply_markup</span><span class="o">=</span><span class="n">your_keyboard</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">web</span><span class="o">.</span><span class="n">Response</span><span class="p">(</span><span class="n">status</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+</span></span></code></pre></div><ul>
+<li>Ограничить через брендмауэр <code>ufw</code> доступ к порту на котором мы поднимали приложение <code>app</code>, например <code>8443</code> на уровне вашего <strong>VPS</strong></li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo ufw allow from 149.154.160.0/20 to any port <span class="m">8443</span>
+</span></span><span class="line"><span class="cl">sudo ufw allow from 91.108.4.0/22 to any port <span class="m">8443</span>
+</span></span></code></pre></div><p>Из этих двух вариантов, на мой взгляд предпочтительнее второй, тк вы открываете порт только для определенного набора IP. Плюс исключаете возможную подмену IP адреса из заголовка и если вдруг тот же Телеграм поменяет IP адреса, вам достаточно будет добавить новое правило в <code>ufw</code>, а не заного перевыкатывать скрипт.</p></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2023-12-28</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="http://example.org/posts/telegram-bot-webhook/" data-hashtag="Telegram"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="http://example.org/posts/telegram-bot-webhook/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/telegram/">Telegram</a>,&nbsp;<a href="/tags/aiogram3/">Aiogram3</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/spark-session/" class="prev" rel="prev" title="Параметры конфигурации для Spark-session"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Параметры конфигурации для Spark-session</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2019 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Kirill</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/typeit/index.umd.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/mhchem.min.js"></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"cookieconsent":{"content":{"dismiss":"Got it!","link":"Learn more","message":"This website uses Cookies to improve your experience."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"data":{"id-1":"Krllz.dev","id-2":"Krllz.dev"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-XKQ0QBR4S8', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-XKQ0QBR4S8" async></script><script type="text/javascript" >
+           (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+           m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+           (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+           ym("95995415", "init", {
+                clickmap:true,
+                trackLinks:true,
+                accurateTrackBounce:true
+           });
+        </script>
+        <noscript><div><img src="https://mc.yandex.ru/watch/95995415" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
