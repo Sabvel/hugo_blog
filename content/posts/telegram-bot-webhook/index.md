@@ -284,6 +284,7 @@ async def print_webhook(request: Request):
 
 #### Ссылки и команды
 Оставлю **ссылки** которые использовались при подготовке данной статьи:
+* https://t.me/S2Vel_bot - Пример моего бота на webhook с сервисом VPN.
 * https://core.telegram.org/bots/webhooks#a-verified-supported-certificate - хорошее руководство по webhook от Телеграм
 * https://docs.aiogram.dev/en/dev-3.x/dispatcher/webhook.html - руководство по webhook от Aiogram
 * `https://api.telegram.org/bot<TOKEN_BOT>/getWebhookInfo `- как уже писал ранее, меняем `<TOKEN_BOT>` на токен вашего Бота и получаем статус подключения Бота к Webhook.
