@@ -2,13 +2,15 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>http://example.org/tags/aiogram3/</loc><lastmod>2023-12-28T13:18:25&#43;03:00</lastmod></url><url>
-            <loc>http://example.org/categories/</loc><lastmod>2023-12-28T13:18:25&#43;03:00</lastmod></url><url>
-            <loc>http://example.org/</loc><lastmod>2023-12-28T13:18:25&#43;03:00</lastmod></url><url>
-            <loc>http://example.org/posts/</loc><lastmod>2023-12-28T13:18:25&#43;03:00</lastmod></url><url>
-            <loc>http://example.org/tags/</loc><lastmod>2023-12-28T13:18:25&#43;03:00</lastmod></url><url>
-            <loc>http://example.org/tags/telegram/</loc><lastmod>2023-12-28T13:18:25&#43;03:00</lastmod></url><url>
-            <loc>http://example.org/categories/vps/</loc><lastmod>2023-12-28T13:18:25&#43;03:00</lastmod></url><url>
+            <loc>http://example.org/tags/aiogram3/</loc><lastmod>2024-01-22T12:20:25&#43;03:00</lastmod></url><url>
+            <loc>http://example.org/tags/apscheduler/</loc><lastmod>2024-01-22T12:20:25&#43;03:00</lastmod></url><url>
+            <loc>http://example.org/categories/</loc><lastmod>2024-01-22T12:20:25&#43;03:00</lastmod></url><url>
+            <loc>http://example.org/</loc><lastmod>2024-01-22T12:20:25&#43;03:00</lastmod></url><url>
+            <loc>http://example.org/posts/</loc><lastmod>2024-01-22T12:20:25&#43;03:00</lastmod></url><url>
+            <loc>http://example.org/tags/</loc><lastmod>2024-01-22T12:20:25&#43;03:00</lastmod></url><url>
+            <loc>http://example.org/tags/telegram/</loc><lastmod>2024-01-22T12:20:25&#43;03:00</lastmod></url><url>
+            <loc>http://example.org/categories/vps/</loc><lastmod>2024-01-22T12:20:25&#43;03:00</lastmod></url><url>
+            <loc>http://example.org/posts/aiogram_apscheduler/</loc><lastmod>2024-01-22T12:20:25&#43;03:00</lastmod></url><url>
             <loc>http://example.org/posts/telegram-bot-webhook/</loc><lastmod>2023-12-28T13:18:25&#43;03:00</lastmod></url><url>
             <loc>http://example.org/categories/de/</loc><lastmod>2023-12-22T11:13:38&#43;03:00</lastmod></url><url>
             <loc>http://example.org/tags/spark/</loc><lastmod>2023-12-22T11:13:38&#43;03:00</lastmod></url><url>

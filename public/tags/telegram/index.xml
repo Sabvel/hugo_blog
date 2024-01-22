@@ -3,7 +3,15 @@
         <title>Telegram - Tag - Krllz.dev блог</title>
         <link>http://example.org/tags/telegram/</link>
         <description>Telegram - Tag - Krllz.dev блог</description>
-        <generator>Hugo -- gohugo.io</generator><language>ru</language><lastBuildDate>Thu, 28 Dec 2023 13:18:25 &#43;0300</lastBuildDate><atom:link href="http://example.org/tags/telegram/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>ru</language><lastBuildDate>Mon, 22 Jan 2024 12:20:25 &#43;0300</lastBuildDate><atom:link href="http://example.org/tags/telegram/" rel="self" type="application/rss+xml" /><item>
+    <title>Отправка сообщения по таймеру в Telegram-Боте на Aiogram3</title>
+    <link>http://example.org/posts/aiogram_apscheduler/</link>
+    <pubDate>Mon, 22 Jan 2024 12:20:25 &#43;0300</pubDate>
+    <author>Kirill</author>
+    <guid>http://example.org/posts/aiogram_apscheduler/</guid>
+    <description><![CDATA[<p>Разберем как отправлять отложенные сообщения на Aiogram 3</p>]]></description>
+</item>
+<item>
     <title>Настройка Webhook для Telegram-Бота на Aiogram3</title>
     <link>http://example.org/posts/telegram-bot-webhook/</link>
     <pubDate>Thu, 28 Dec 2023 13:18:25 &#43;0300</pubDate>

@@ -17,7 +17,7 @@
 <meta name="application-name" content="Krllz">
 <meta name="apple-mobile-web-app-title" content="Krllz"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://example.org/posts/telegram-bot-webhook/" /><link rel="prev" href="http://example.org/posts/spark-session/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://example.org/posts/telegram-bot-webhook/" /><link rel="prev" href="http://example.org/posts/spark-session/" /><link rel="next" href="http://example.org/posts/aiogram_apscheduler/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
     {
@@ -411,7 +411,7 @@
 <p><code>curl -F &quot;url=&quot; https://api.telegram.org/bot&lt;TOKEN_BOT&gt;/setWebhook</code> - сброс настроек webHook. Меняем <code>&lt;TOKEN_BOT&gt;</code> на токен вашего Бота. Необходимо использовать если вы допустим использовали один домен на 2 разных ботах.</p>
 </li>
 <li>
-<p><code>curl -F &quot;url=https://&lt;example_hook.example.com&gt;:&lt;PORT&gt;/&lt;webHook_Path&gt;&quot; https://api.telegram.org/bot&lt;TOKEN_BOT&gt;/setWebhook</code> - По сути эту команду мы отправляем в методе <code>on_startup</code>. Но хочу подсветить момент, если вы при разработке меняете Ботов, домены и тд. то бывают баги когда вроде бы все настроено, но почему то не работает. Мне помогла отправка данной команды после старта Бота, когда я получал ошибку <code>connection_refused</code>. В последствии при рестартах бота данного бага не наблюдалось. Но если менял Бота, то баг повторялся.</p>
+<p><code>curl -F &quot;url=https://example_hook.example.com:PORT/webHook_Path&quot; https://api.telegram.org/bot&lt;TOKEN_BOT&gt;/setWebhook</code> - По сути эту команду мы отправляем в методе <code>on_startup</code>. Но хочу подсветить момент, если вы при разработке меняете Ботов, домены и тд. то бывают баги когда вроде бы все настроено, но почему то не работает. Мне помогла отправка данной команды после старта Бота, когда я получал ошибку <code>connection_refused</code>. В последствии при рестартах бота данного бага не наблюдалось. Но если менял Бота, то баг повторялся.</p>
 </li>
 </ul>
 <h4 id="безопасность">Безопасность</h4>
@@ -480,7 +480,8 @@
         </section>
     </div>
 
-    <div class="post-nav"><a href="/posts/spark-session/" class="prev" rel="prev" title="Параметры конфигурации для Spark-session"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Параметры конфигурации для Spark-session</a></div>
+    <div class="post-nav"><a href="/posts/spark-session/" class="prev" rel="prev" title="Параметры конфигурации для Spark-session"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Параметры конфигурации для Spark-session</a>
+            <a href="/posts/aiogram_apscheduler/" class="next" rel="next" title="Отправка сообщения по таймеру в Telegram-Боте на Aiogram3">Отправка сообщения по таймеру в Telegram-Боте на Aiogram3<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 </article></div>
             </main><footer class="footer">

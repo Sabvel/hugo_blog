@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Apscheduler - Tag - Krllz.dev блог</title>
+        <link>http://example.org/tags/apscheduler/</link>
+        <description>Apscheduler - Tag - Krllz.dev блог</description>
+        <generator>Hugo -- gohugo.io</generator><language>ru</language><lastBuildDate>Mon, 22 Jan 2024 12:20:25 &#43;0300</lastBuildDate><atom:link href="http://example.org/tags/apscheduler/" rel="self" type="application/rss+xml" /><item>
+    <title>Отправка сообщения по таймеру в Telegram-Боте на Aiogram3</title>
+    <link>http://example.org/posts/aiogram_apscheduler/</link>
+    <pubDate>Mon, 22 Jan 2024 12:20:25 &#43;0300</pubDate>
+    <author>Kirill</author>
+    <guid>http://example.org/posts/aiogram_apscheduler/</guid>
+    <description><![CDATA[<p>Разберем как отправлять отложенные сообщения на Aiogram 3</p>]]></description>
+</item>
+</channel>
+</rss>
